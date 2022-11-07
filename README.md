@@ -21,7 +21,7 @@ mobile app and other clientID for a web app)
   - endpoints:
     - http://localhost:8280/code-flow/
     - http://localhost:8280/code-flow/logout
-- web-app-demo: represents a mobile application
+- web-app-demo: represents a web application
   - start: `mvn quarkus:dev -f web-app-demo`
   - endpoints:
     - http://localhost:8180/code-flow/
@@ -40,7 +40,7 @@ Web app login screen
 
 ![webAppLoginScreen](misc/web-app-login.png)
 
-Login into one of this application and once you are in, refresh the other screen. 
+Login into one of this application (alice / alice) and once you are in, refresh the other screen. 
 
 Mobile app code-flow protected resource
 

@@ -6,27 +6,40 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import io.quarkus.oidc.runtime.DefaultTokenIntrospectionUserInfoCache;
+import io.quarkus.qute.Template;
+import io.quarkus.qute.TemplateInstance;
 import io.quarkus.security.Authenticated;
 import io.quarkus.security.identity.SecurityIdentity;
+import org.jboss.logging.Logger;
 
 @PermitAll
 @Path("/code-flow")
 public class LogoutFlow {
+    private static final Logger LOG = Logger.getLogger(LogoutFlow.class);
+
     @Inject
     SecurityIdentity identity;
 
     @Inject
     DefaultTokenIntrospectionUserInfoCache tokenCache;
 
+    @Inject
+    Template mobile;
+
+    @Inject
+    Template logout;
+
     @GET
     @Authenticated
-    public String access() {
-        return "Mobile Demo nov 2022: Hello " + identity.getPrincipal().getName() + ", cache size: " + tokenCache.getCacheSize();
+    public TemplateInstance access() {
+        LOG.info("Mobile Demo nov 2022: Hello " + identity.getPrincipal().getName() + ", cache size: " + tokenCache.getCacheSize());
+        String name = identity.getPrincipal().getName();
+        return mobile.data("name", name);
     }
 
     @GET
     @Path("/post-logout")
-    public String postLogout() {
-        return "PostLogout invoked";
+    public TemplateInstance postLogout() {
+        return logout.data("result", "All sessions was removed!");
     }
 }
