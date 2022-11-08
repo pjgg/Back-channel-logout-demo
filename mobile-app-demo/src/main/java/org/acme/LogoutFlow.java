@@ -12,6 +12,7 @@ import io.quarkus.security.Authenticated;
 import io.quarkus.security.identity.SecurityIdentity;
 import org.jboss.logging.Logger;
 
+
 @PermitAll
 @Path("/code-flow")
 public class LogoutFlow {
@@ -32,7 +33,7 @@ public class LogoutFlow {
     @GET
     @Authenticated
     public TemplateInstance access() {
-        LOG.info("Mobile Demo nov 2022: Hello " + identity.getPrincipal().getName() + ", cache size: " + tokenCache.getCacheSize());
+        LOG.debug("Mobile Demo nov 2022: Hello " + identity.getPrincipal().getName() + ", cache size: " + tokenCache.getCacheSize());
         String name = identity.getPrincipal().getName();
         return mobile.data("name", name);
     }

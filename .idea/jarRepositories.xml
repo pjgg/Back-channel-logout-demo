@@ -7,6 +7,11 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="Maven repository" />
+      <option name="name" value="Maven repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="jboss-maven-central-proxy" />
       <option name="name" value="JBoss Maven Central proxy" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/central/" />
@@ -15,6 +20,11 @@
       <option name="id" value="gradle-official-repository" />
       <option name="name" value="Gradle Official Repository" />
       <option name="url" value="https://repo.gradle.org/gradle/libs-releases-local/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="red-hat-enterprise-maven-repository" />
+      <option name="name" value="red-hat-enterprise-maven-repository" />
+      <option name="url" value="https://maven.repository.redhat.com/ga/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />

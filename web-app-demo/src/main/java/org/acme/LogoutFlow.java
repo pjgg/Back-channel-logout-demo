@@ -32,7 +32,7 @@ public class LogoutFlow {
     @GET
     @Authenticated
     public TemplateInstance access() {
-        LOG.info("Webapp Demo nov 2022: Hello " + identity.getPrincipal().getName() + ", cache size: " + tokenCache.getCacheSize());
+        LOG.debug("Webapp Demo nov 2022: Hello " + identity.getPrincipal().getName() + ", cache size: " + tokenCache.getCacheSize());
         String name = identity.getPrincipal().getName();
         return web.data("name", name);
     }
