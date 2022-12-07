@@ -14,7 +14,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mobile-app" options="-parameters" />
-      <module name="parent" options="-parameters" />
+      <module name="parent" options="" />
       <module name="web-app" options="-parameters" />
     </option>
   </component>

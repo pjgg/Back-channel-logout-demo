@@ -1,10 +1,11 @@
 package org.acme;
 
 import javax.annotation.security.PermitAll;
+import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-
+import io.quarkus.oidc.SecurityEvent;
 import io.quarkus.oidc.runtime.DefaultTokenIntrospectionUserInfoCache;
 import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
@@ -28,6 +29,13 @@ public class LogoutFlow {
 
     @Inject
     Template logout;
+
+    public void event(@Observes SecurityEvent event) {
+        LOG.info("SecurityEvent: " + event.getEventType().name());
+//        String tenantId = event.getSecurityIdentity().getAttribute("default");
+//        RoutingContext vertxContext = event.getSecurityIdentity().getAttribute(RoutingContext.class.getName());
+//        vertxContext.put("listener-message", String.format("event:%s,tenantId:%s", event.getEventType().name(), tenantId));
+    }
 
     @GET
     @Authenticated
